@@ -1,0 +1,64 @@
+{
+  "name": "psuservice-monorepo",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/psuservice-monorepo/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/psuservice-monorepo",
+        "main": "apps/psuservice-monorepo/src/main.ts",
+        "tsConfig": "apps/psuservice-monorepo/tsconfig.app.json",
+        "assets": ["apps/psuservice-monorepo/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/psuservice-monorepo/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "psuservice-monorepo:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "psuservice-monorepo:build:development"
+        },
+        "production": {
+          "buildTarget": "psuservice-monorepo:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/psuservice-monorepo/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/psuservice-monorepo/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
