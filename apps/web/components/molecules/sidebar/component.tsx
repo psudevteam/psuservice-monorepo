@@ -1,26 +1,38 @@
+'use client';
 import { FC, ReactElement } from 'react';
 import { TSidebarProps } from './types';
 import Link from 'next/link';
+import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
 
 export const Sidebar: FC<TSidebarProps> = ({ menus }): ReactElement => {
+  const router = usePathname();
+
+  const activeLink = (val: string) =>
+    clsx('h-auto rounded-lg font-medium', {
+      'bg-green-400 hover:bg-green-300 text-white': router === val,
+      'bg-gray-400 hover:bg-gray-300 text-gray-50': router !== val,
+    });
+
   return (
     <aside
       id="default-sidebar"
-      className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+      className="fixed top-0 border-2 shadow-sm left-0 z-40 w-64 h-screen bg-white transition-transform -translate-x-full sm:translate-x-0"
       aria-label="Sidebar"
     >
-      <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-        <ul className="space-y-2 font-medium">
+      <figure className="flex p-4">
+        <span className="font-medium text-1xl">PSU Service - Dashboard</span>
+      </figure>
+      <div className="h-full px-3 py-4 overflow-y-auto">
+        <ul className="gap-y-4 flex flex-col justify-center font-semibold">
           {menus?.map((menu, key) => (
-            <li key={key}>
+            <li className={activeLink(menu.link)} key={key}>
               <Link
                 href={menu.link}
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex gap-x-2 items-center p-3 h-auto rounded-lg"
               >
-                <div className="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
-                  {menu.icon}
-                </div>
-                <span className="ml-3">{menu.name}</span>
+                <div className={activeLink(menu.link)}>{menu.icon}</div>
+                <span className="font-[500]">{menu.name}</span>
               </Link>
             </li>
           ))}
