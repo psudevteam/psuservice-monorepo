@@ -1,11 +1,11 @@
 /* eslint-disable */
 export default {
-  displayName: 'psuservice-monorepo',
+  displayName: 'api',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transform: {
     '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }],
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/psuservice-monorepo',
+  coverageDirectory: '../../coverage/apps/api',
 };
