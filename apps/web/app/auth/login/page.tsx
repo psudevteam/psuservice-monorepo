@@ -1,7 +1,15 @@
+import { TextField } from '../../../components/molecules/inputs/text';
 import Link from 'next/link';
 import { Fragment } from 'react';
+import { useForm } from 'react-hook-form';
 
 export default function LoginPage() {
+  const { control } = useForm({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
   return (
     <Fragment>
       <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -9,21 +17,7 @@ export default function LoginPage() {
       </h1>
 
       <form className="space-y-4 md:space-y-6" action="#">
-        <div>
-          <label
-            htmlFor="email"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Your email
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="name@company.com"
-          />
-        </div>
+        <TextField type={'email'} control={control} name={'email'} />
         <div>
           <label
             htmlFor="password"
@@ -54,16 +48,16 @@ export default function LoginPage() {
                 htmlFor="remember"
                 className="text-gray-500 dark:text-gray-300"
               >
-                Remember me
+                Ingat saya
               </label>
             </div>
           </div>
-          <a
+          <Link
             href="#"
             className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
           >
-            Forgot password?
-          </a>
+            Lupa kata sandi?
+          </Link>
         </div>
         <button
           type="submit"
@@ -72,7 +66,7 @@ export default function LoginPage() {
           Masuk
         </button>
         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-         Belum punya akun?{' '}
+          Belum punya akun?{' '}
           <Link
             href="/auth/register"
             className="font-medium text-primary-600 hover:underline dark:text-primary-500"
