@@ -2,7 +2,7 @@
 import { IsNotEmpty, IsString } from 'class-validator';
 
 export class SignInDto {
-  // Gets only validated if it's part of the request's body
+  // Sign in payload format
   @IsString()
   @IsNotEmpty()
   public email: string;
