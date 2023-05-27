@@ -1,6 +1,6 @@
 import {IsNotEmpty, IsString, IsEmail, IsStrongPassword } from 'class-validator';
 
-export class SignInDto {
+export class RegisterDto {
   // Sign in payload format
   @IsString()
   @IsEmail()
@@ -17,4 +17,8 @@ export class SignInDto {
   })
   @IsNotEmpty()
   public password: string;
+
+  @IsString()
+  @IsNotEmpty()
+  public name: string;
 }
