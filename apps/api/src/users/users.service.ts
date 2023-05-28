@@ -4,6 +4,7 @@ import { User, Prisma } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 import { HttpException, HttpStatus } from '@nestjs/common';
 
+
 @Injectable()
 export class UsersService {
   constructor(private prisma: PrismaService) {}
@@ -14,7 +15,23 @@ export class UsersService {
          email: email
        }
      })
-   }
+  }
+
+  async profile(email: string): Promise<Omit<User, "password">|undefined>{
+    return this.prisma.user.findUnique({
+      where:{
+        email: email
+      },
+      select: {
+        id: true,
+        email: true,
+        name: true,
+        createdAt: true,
+        updatedAt: true,
+
+      }
+    })
+  }
 
   async create(data: Prisma.UserCreateInput): Promise<User>{
     const exist = await this.prisma.user.findFirst(
