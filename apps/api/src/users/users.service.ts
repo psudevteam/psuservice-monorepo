@@ -17,7 +17,7 @@ export class UsersService {
      })
   }
 
-  async profile(email: string): Promise<Omit<User, "password">|undefined>{
+  async profile(email: string): Promise<Omit<User, "password"| "refresh">|undefined>{
     return this.prisma.user.findUnique({
       where:{
         email: email
