@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  database:
+    container_name: psuservice-db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: psuservice-db
+    ports:
+      - '5434:5434'

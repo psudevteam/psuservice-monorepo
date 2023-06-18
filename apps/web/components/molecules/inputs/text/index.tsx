@@ -2,9 +2,9 @@
 import { ReactElement, useState } from "react";
 import { FieldValues, useController } from "react-hook-form";
 import { TTextFieldProps } from "./types";
-import clsx from "clsx";
 import { MdCheck } from "react-icons/md";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai"
+import clsx from "clsx";
 
 export const TextField = <T extends FieldValues>({
   variant = "md",
