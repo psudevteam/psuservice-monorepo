@@ -103,7 +103,7 @@
     "metro": "0.74.1",
     "metro-babel-register": "0.74.1",
     "metro-react-native-babel-preset": "0.74.1",
-    "metro-react-native-babel-transformer": "0.74.1",
+    "metro-react-native-babel-transformer": "0.76.6",
     "metro-resolver": "0.74.1",
     "nx": "16.2.2",
     "nx-cloud": "latest",
