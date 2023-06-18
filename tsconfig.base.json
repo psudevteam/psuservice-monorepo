@@ -15,7 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@psuservice-monorepo/types": ["libs/types/src/index.ts"]
+      "@/components": ["libs/components/src/index.ts"],
+      "@/modules": ["libs/modules/src/index.ts"],
+      "@/services": ["libs/services/src/index.ts"],
+      "@/types": ["libs/types/src/index.ts"],
+      "@/providers": ["libs/providers/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { Sidebar } from '../../components';
+import { Sidebar } from '@/components';
 import { MdDashboard, MdSettings } from 'react-icons/md';
 
 const _sidebar_menu = [

@@ -1,7 +1,11 @@
-import {IsNotEmpty, IsString, IsEmail, IsStrongPassword } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsString,
+  IsEmail,
+  IsStrongPassword,
+} from 'class-validator';
 
 export class SignInDto {
-  // Sign in payload format
   @IsString()
   @IsEmail()
   @IsNotEmpty()

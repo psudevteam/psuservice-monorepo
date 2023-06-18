@@ -6,7 +6,7 @@ import {
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { JwtPayload, Tokens } from './types';
+import { TJwtPayload, TLoginResponse, TToken } from '@/types';
 import { PrismaService } from '../services/prisma/prisma.services';
 
 @Injectable()
@@ -17,17 +17,7 @@ export class AuthService {
     private prisma: PrismaService
   ) {}
 
-  async signIn(
-    email: string,
-    pass: string
-  ): Promise<{
-    token: Tokens;
-    user: {
-      id: number;
-      name: string;
-      email: string;
-    };
-  }> {
+  async signIn(email: string, pass: string): Promise<TLoginResponse> {
     const user = await this.usersService.findOne(email.toLowerCase());
     if (!user) {
       throw new UnauthorizedException();
@@ -68,8 +58,7 @@ export class AuthService {
     return true;
   }
 
-  async refreshTokens(userId: number, rt: string): Promise<Tokens> {
-    console.log(userId);
+  async refreshTokens(userId: number, rt: string): Promise<TToken> {
     const user = await this.prisma.user.findUnique({
       where: {
         id: userId,
@@ -99,8 +88,8 @@ export class AuthService {
     });
   }
 
-  async getTokens(userId: number, email: string): Promise<Tokens> {
-    const jwtPayload: JwtPayload = {
+  async getTokens(userId: number, email: string): Promise<TToken> {
+    const jwtPayload: TJwtPayload = {
       sub: userId,
       email: email,
     };
