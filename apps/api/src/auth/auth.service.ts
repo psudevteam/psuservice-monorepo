@@ -1,4 +1,8 @@
-import { Injectable, UnauthorizedException, ForbiddenException } from '@nestjs/common';
+import {
+  Injectable,
+  UnauthorizedException,
+  ForbiddenException,
+} from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
@@ -7,15 +11,25 @@ import { PrismaService } from '../services/prisma/prisma.services';
 
 @Injectable()
 export class AuthService {
-   constructor(
-     private usersService: UsersService,
-     private jwtService: JwtService,
-     private prisma: PrismaService,
-   ) {}
+  constructor(
+    private usersService: UsersService,
+    private jwtService: JwtService,
+    private prisma: PrismaService
+  ) {}
 
-  async signIn(email: string, pass: string): Promise<any> {
+  async signIn(
+    email: string,
+    pass: string
+  ): Promise<{
+    token: Tokens;
+    user: {
+      id: number;
+      name: string;
+      email: string;
+    };
+  }> {
     const user = await this.usersService.findOne(email.toLowerCase());
-    if(!user){
+    if (!user) {
       throw new UnauthorizedException();
     }
 
@@ -25,33 +39,37 @@ export class AuthService {
       throw new UnauthorizedException();
     }
 
-    const tokens = await this.getTokens(user.id, user.email);
-    await this.updateRtHash(user.id, tokens.refresh_token);
+    const token = await this.getTokens(user.id, user.email);
+    await this.updateRtHash(user.id, token.refresh_token);
 
     return {
-      data: tokens
+      token,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+      },
     };
   }
 
-  async logout(userId: number): Promise<boolean>{
+  async logout(userId: number): Promise<boolean> {
     await this.prisma.user.updateMany({
       where: {
         id: userId,
         refresh: {
-          not: null
-        }
+          not: null,
+        },
       },
       data: {
-        refresh: null
-      }
-    })
+        refresh: null,
+      },
+    });
 
-    return true
+    return true;
   }
 
-
   async refreshTokens(userId: number, rt: string): Promise<Tokens> {
-    console.log(userId)
+    console.log(userId);
     const user = await this.prisma.user.findUnique({
       where: {
         id: userId,
@@ -70,7 +88,7 @@ export class AuthService {
 
   async updateRtHash(userId: number, rt: string): Promise<void> {
     const salt = await bcrypt.genSalt();
-    const hash = await bcrypt.hash(rt, salt)
+    const hash = await bcrypt.hash(rt, salt);
     await this.prisma.user.update({
       where: {
         id: userId,
