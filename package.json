@@ -97,7 +97,7 @@
     "cypress": "^12.11.0",
     "detox": "^20.9.0",
     "dotenv-cli": "^7.2.1",
-    "eslint": "~8.15.0",
+    "eslint": "~8.43.0",
     "eslint-config-next": "13.4.1",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-cypress": "^2.10.3",
