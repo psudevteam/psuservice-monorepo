@@ -57,7 +57,7 @@
     "@babel/preset-env": "^7.22.5",
     "@babel/preset-react": "^7.14.5",
     "@babel/runtime": "^7.22.5",
-    "@nestjs/schematics": "^9.1.0",
+    "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^9.1.1",
     "@nx/cypress": "16.3.2",
     "@nx/detox": "16.3.2",
