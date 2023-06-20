@@ -9433,16 +9433,13 @@ methods@~1.1.2:
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
   integrity sha512-iclAHeNqNm68zFtnZ0e+1L2yUIdvzNoauKU4WBA3VvH/vPFieF7qfRlwUZU+DA9P9bPXIS90ulxoUoCH23sV2w==
 
-metro-babel-register@0.74.1:
-  version "0.74.1"
-  resolved "https://registry.yarnpkg.com/metro-babel-register/-/metro-babel-register-0.74.1.tgz#e41921c40bdd53f3e6ce27d342fb1dc5f8d4ca34"
-  integrity sha512-e/BgnWMVDh5wt2xGn/E+VATF55UHXz6gceMs4t/uCtdk/qD/Khz3auYvWBpv8k27xGqqTLu7FYUi0/MAtukhrQ==
+metro-babel-register@0.76.6:
+  version "0.76.6"
+  resolved "https://registry.yarnpkg.com/metro-babel-register/-/metro-babel-register-0.76.6.tgz#5156d7ba2ec40226012921499ade247015c536d3"
+  integrity sha512-no0t3U7fapPKK2Nd/ibswdO6oEl/V/vJR7yattCIusd1uye0IAkR32hbD/hDZ/1KqPzp7vEGjGLRQd7+3bb4+w==
   dependencies:
     "@babel/core" "^7.20.0"
-    "@babel/plugin-proposal-nullish-coalescing-operator" "^7.0.0"
-    "@babel/plugin-proposal-optional-chaining" "^7.0.0"
-    "@babel/plugin-syntax-class-properties" "^7.0.0"
-    "@babel/plugin-transform-flow-strip-types" "^7.0.0"
+    "@babel/plugin-transform-flow-strip-types" "^7.20.0"
     "@babel/plugin-transform-modules-commonjs" "^7.0.0"
     "@babel/preset-typescript" "^7.18.0"
     "@babel/register" "^7.0.0"
