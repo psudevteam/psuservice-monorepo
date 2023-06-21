@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 18
       - run: yarn install
-      - run: yarn run nx run-many --target=lint --projects=web,api
+      - run: yarn run nx run-many --target=lint --projects=web,landing,api
 
   format-write:
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: 18
       - run: yarn install
-      - run: yarn run nx run-many --target=build --projects=web,api
+      - run: yarn run nx run-many --target=build --projects=web,landing,api
 
   clean:
     runs-on: ubuntu-latest

@@ -17,21 +17,22 @@ export class UsersController {
 
   @HttpCode(HttpStatus.OK)
   @Post('register')
-  register(@Body() registerDto: RegisterDto) {
+  async register(@Body() registerDto: RegisterDto) {
     const result = this.userService.create({
       email: registerDto.email,
       password: registerDto.password,
       name: registerDto.name,
     });
 
-    return result.then((user) => ({
+    const user = await result;
+    return {
       name: user.name,
       email: user.email,
-    }));
+    };
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('detail')
+  @Get('me')
   getDetail(@Request() req) {
     const user = req.user;
     return this.userService.profile(user.email);
