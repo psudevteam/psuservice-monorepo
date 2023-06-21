@@ -15,7 +15,8 @@
     "api:serve:prod": "yarn nx serve api --prod",
     "api:build": "yarn nx build api",
     "api:lint": "yarn nx lint api",
-    "api:migrate": "dotenv -e ./apps/api/.env -- yarn prisma migrate dev"
+    "api:migrate": "dotenv -e ./apps/api/.env -- yarn prisma migrate dev",
+    "postinstall": "node ./tools/scripts/patch-nx-cli.js"
   },
   "prisma": {
     "schema": "apps/api/prisma/schema.prisma"
@@ -72,6 +73,7 @@
     "@nx/react-native": "16.3.2",
     "@nx/webpack": "16.3.2",
     "@nx/workspace": "16.3.2",
+    "@nxtensions/astro": "^3.5.0",
     "@react-native-community/cli": "10.2.2",
     "@react-native-community/cli-platform-android": "11.3.2",
     "@react-native-community/cli-platform-ios": "10.2.1",
@@ -92,6 +94,7 @@
     "@types/react-native": "0.71.7",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
+    "astro": "^2.0.0",
     "autoprefixer": "^10.4.14",
     "babel-jest": "^29.4.1",
     "cypress": "^12.15.0",

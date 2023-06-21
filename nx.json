@@ -1,13 +1,15 @@
 {
-  "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx-cloud",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "MjlkNWEzNzQtMDY1NS00N2I3LTlhNzgtNTFlZjk2YTJmODVkfHJlYWQtd3JpdGU="
-      }
-    }
+  "plugins": ["@nxtensions/astro"],
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/jest.config.[jt]s",
+      "!{projectRoot}/.eslintrc.json"
+    ],
+    "sharedGlobals": ["{workspaceRoot}/babel.config.json"]
   },
   "targetDefaults": {
     "build": {
@@ -26,18 +28,19 @@
     },
     "e2e": {
       "inputs": ["default", "^production"]
+    },
+    "check": {
+      "inputs": ["production", "^production"]
     }
   },
-  "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "production": [
-      "default",
-      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-      "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/jest.config.[jt]s",
-      "!{projectRoot}/.eslintrc.json"
-    ],
-    "sharedGlobals": ["{workspaceRoot}/babel.config.json"]
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e", "check"],
+        "accessToken": "MjlkNWEzNzQtMDY1NS00N2I3LTlhNzgtNTFlZjk2YTJmODVkfHJlYWQtd3JpdGU="
+      }
+    }
   },
   "generators": {
     "@nx/react": {
@@ -54,5 +57,6 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "defaultProject": "landing"
 }

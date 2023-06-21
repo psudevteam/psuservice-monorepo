@@ -1,5 +1,9 @@
 import { LoginModule } from '@/modules';
+import { NextPage } from 'next';
+import { ReactElement } from 'react';
 
-export default function LoginPage() {
+const LoginPage: NextPage = (): ReactElement => {
   return <LoginModule />;
-}
+};
+
+export default LoginPage;
