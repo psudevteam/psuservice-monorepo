@@ -10838,17 +10838,22 @@ metro-resolver@0.73.10:
   dependencies:
     absolute-path "^0.0.0"
 
-metro-resolver@0.74.1, metro-resolver@^0.74.1:
+metro-resolver@0.76.6:
+  version "0.76.6"
+  resolved "https://registry.yarnpkg.com/metro-resolver/-/metro-resolver-0.76.6.tgz#d711c069e6c30b4527327a3cd11b81f038bceeca"
+  integrity sha512-npZbsYTauhBmWj8AsWCU/RZe2qUJ5mAS93QoqYPIGNqnXlVq7maga3z17jXvP9o5BgsfdxnEmBVHVzYHdSegGA==
+
+metro-resolver@0.76.7:
+  version "0.76.7"
+  resolved "https://registry.yarnpkg.com/metro-resolver/-/metro-resolver-0.76.7.tgz#f00ebead64e451c060f30926ecbf4f797588df52"
+  integrity sha512-pC0Wgq29HHIHrwz23xxiNgylhI8Rq1V01kQaJ9Kz11zWrIdlrH0ZdnJ7GC6qA0ErROG+cXmJ0rJb8/SW1Zp2IA==
+
+metro-resolver@^0.74.1:
   version "0.74.1"
   resolved "https://registry.yarnpkg.com/metro-resolver/-/metro-resolver-0.74.1.tgz#62c1313bf8ff02b86d6cdd9294306d718970caac"
   integrity sha512-1Ju7bvUnmy1lmsYwhujWsP4qxBVfVF7CkKiUCRolUbyZzGgymyVGXVN5yEnbXXNHgBAOlr4+2KKYjoXzhXBo4g==
   dependencies:
     absolute-path "^0.0.0"
-
-metro-resolver@0.76.6:
-  version "0.76.6"
-  resolved "https://registry.yarnpkg.com/metro-resolver/-/metro-resolver-0.76.6.tgz#d711c069e6c30b4527327a3cd11b81f038bceeca"
-  integrity sha512-npZbsYTauhBmWj8AsWCU/RZe2qUJ5mAS93QoqYPIGNqnXlVq7maga3z17jXvP9o5BgsfdxnEmBVHVzYHdSegGA==
 
 metro-runtime@0.73.10:
   version "0.73.10"
