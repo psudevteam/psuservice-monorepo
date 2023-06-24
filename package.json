@@ -117,7 +117,7 @@
     "jest-environment-jsdom": "^29.4.1",
     "jest-environment-node": "^29.4.1",
     "jest-react-native": "18.0.0",
-    "metro": "0.76.6",
+    "metro": "0.76.7",
     "metro-babel-register": "0.76.6",
     "metro-react-native-babel-preset": "0.76.7",
     "metro-react-native-babel-transformer": "0.76.7",
