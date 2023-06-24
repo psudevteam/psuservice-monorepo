@@ -1,4 +1,4 @@
-import { QueryProvider, RecoilProvider } from '@/providers';
+import { AuthProvider, QueryProvider, RecoilProvider } from '@/providers';
 import './global.css';
 
 export const metadata = {
@@ -15,9 +15,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <main className="flex items-center justify-center w-full h-screen">
-          <QueryProvider>
-            <RecoilProvider>{children}</RecoilProvider>
-          </QueryProvider>
+          <AuthProvider>
+            <QueryProvider>
+              <RecoilProvider>{children}</RecoilProvider>
+            </QueryProvider>
+          </AuthProvider>
         </main>
       </body>
     </html>

@@ -3,7 +3,7 @@ import { FC, Fragment, ReactElement } from 'react';
 import { TextField } from '@/components';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
-import { useLogin } from './hook';
+import { signIn } from 'next-auth/react';
 
 export const LoginModule: FC = (): ReactElement => {
   const { control, handleSubmit } = useForm({
@@ -13,9 +13,14 @@ export const LoginModule: FC = (): ReactElement => {
     },
   });
 
-  const { mutate } = useLogin();
-
-  const onSubmit = handleSubmit((data) => mutate(data));
+  const onSubmit = handleSubmit(async (data) => {
+    await signIn('login', {
+      callbackUrl: '/dashboard',
+      redirect: true,
+      email: data.email,
+      password: data.password,
+    });
+  });
 
   return (
     <Fragment>

@@ -4,8 +4,10 @@ import { TextField } from '@/components';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { useRegister } from './hook';
+import { useRouter } from 'next/navigation';
 
 export const RegisterModule: FC = (): ReactElement => {
+  const router = useRouter();
   const { control, handleSubmit } = useForm({
     defaultValues: {
       name: '',
@@ -18,11 +20,18 @@ export const RegisterModule: FC = (): ReactElement => {
   const { mutate } = useRegister();
 
   const onSubmit = handleSubmit((data) =>
-    mutate({
-      email: data.email,
-      name: data.name,
-      password: data.password,
-    })
+    mutate(
+      {
+        email: data.email,
+        name: data.name,
+        password: data.password,
+      },
+      {
+        onSuccess: () => {
+          router.push('/auth/login');
+        },
+      }
+    )
   );
 
   return (

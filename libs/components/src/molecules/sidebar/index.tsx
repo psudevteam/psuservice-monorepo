@@ -5,7 +5,10 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 
-export const Sidebar: FC<TSidebarProps> = ({ menus }): ReactElement => {
+export const Sidebar: FC<TSidebarProps> = ({
+  menus,
+  userName,
+}): ReactElement => {
   const router = usePathname();
 
   const activeLink = (val: string) =>
@@ -20,8 +23,11 @@ export const Sidebar: FC<TSidebarProps> = ({ menus }): ReactElement => {
       className="fixed top-0 border-2 shadow-sm left-0 z-40 w-64 h-screen bg-white transition-transform -translate-x-full sm:translate-x-0"
       aria-label="Sidebar"
     >
-      <figure className="flex p-4">
-        <span className="font-medium text-1xl">PSU Service - Dashboard</span>
+      <figure className="flex flex-col p-4">
+        <span className="font-semibold text-blue-400 text-3xl">
+          PSU Service
+        </span>
+        <span>{userName}</span>
       </figure>
       <div className="h-full px-3 py-4 overflow-y-auto">
         <ul className="gap-y-4 flex flex-col justify-center font-semibold">

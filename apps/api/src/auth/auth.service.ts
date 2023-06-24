@@ -34,8 +34,9 @@ export class AuthService {
 
     return {
       token,
+      id: user.id.toString(),
       user: {
-        id: user.id,
+        id: user.id.toString(),
         name: user.name,
         email: user.email,
       },
