@@ -77,6 +77,7 @@
     "@nx/node": "16.3.2",
     "@nx/react": "16.3.2",
     "@nx/react-native": "16.3.2",
+    "@nx/vite": "16.3.2",
     "@nx/webpack": "16.3.2",
     "@nx/workspace": "16.3.2",
     "@nxtensions/astro": "^3.5.0",
@@ -100,6 +101,8 @@
     "@types/react-native": "0.71.7",
     "@typescript-eslint/eslint-plugin": "^5.60.0",
     "@typescript-eslint/parser": "^5.60.0",
+    "@vitejs/plugin-react": "^3.0.0",
+    "@vitest/ui": "^0.31.0",
     "astro": "^2.0.0",
     "autoprefixer": "^10.4.14",
     "babel-jest": "^29.4.1",
@@ -120,6 +123,7 @@
     "jest-environment-jsdom": "^29.4.1",
     "jest-environment-node": "^29.4.1",
     "jest-react-native": "18.0.0",
+    "jsdom": "~20.0.3",
     "metro": "0.76.7",
     "metro-babel-register": "0.76.6",
     "metro-react-native-babel-preset": "0.76.7",
@@ -138,6 +142,11 @@
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
     "typescript": "~5.0.2",
+    "vite": "^4.3.4",
+    "vite-plugin-dts": "~1.7.1",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-tsconfig-paths": "^4.0.2",
+    "vitest": "^0.31.0",
     "webpack": "^5.87.0"
   }
 }

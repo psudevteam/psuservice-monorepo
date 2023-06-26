@@ -4,6 +4,7 @@ import type { NextPage } from 'next';
 import { Fragment } from 'react';
 import { useSession } from 'next-auth/react';
 import { DashboardHead } from '@/modules';
+import { EmptyIll } from '@/illustrations';
 
 const DashboardPage: NextPage = (): ReactElement => {
   const session = useSession();
@@ -29,6 +30,7 @@ const DashboardPage: NextPage = (): ReactElement => {
           },
         ]}
       />
+      <EmptyIll />
     </Fragment>
   );
 };
