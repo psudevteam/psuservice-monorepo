@@ -129,7 +129,7 @@
     "metro-react-native-babel-preset": "0.76.7",
     "metro-react-native-babel-transformer": "0.76.7",
     "metro-resolver": "0.76.7",
-    "nx": "16.3.2",
+    "nx": "16.4.0",
     "nx-cloud": "16.0.5",
     "postcss": "^8.4.23",
     "prettier": "^2.8.8",
