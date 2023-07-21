@@ -74,7 +74,7 @@
     "@nx/linter": "16.3.2",
     "@nx/nest": "16.3.2",
     "@nx/next": "16.4.0",
-    "@nx/node": "16.3.2",
+    "@nx/node": "16.5.4",
     "@nx/react": "16.3.2",
     "@nx/react-native": "16.3.2",
     "@nx/vite": "16.3.2",
