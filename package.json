@@ -77,7 +77,7 @@
     "@nx/node": "16.3.2",
     "@nx/react": "16.3.2",
     "@nx/react-native": "16.3.2",
-    "@nx/vite": "16.3.2",
+    "@nx/vite": "17.1.2",
     "@nx/webpack": "16.3.2",
     "@nx/workspace": "16.4.0",
     "@nxtensions/astro": "^3.5.0",
